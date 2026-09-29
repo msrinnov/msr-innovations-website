@@ -227,6 +227,7 @@
     }
 
     .photo.has-img { border: 0; }
+    .photo-hero { aspect-ratio: 16 / 7; margin-top: 56px; }
     .photo-team { aspect-ratio: 4 / 3; margin-top: 32px; }
     /* Sections */
     section { padding: 90px 0; }
@@ -462,7 +463,12 @@
       <div class="hero-actions">
         <a href="#contact" class="btn btn-primary">Book a Free Consultation</a>
         <a href="#services" class="btn btn-secondary">See Services</a>
-      </div>    </div>
+      </div>
+      <div class="photo photo-hero">
+        <img src="images/hero.jpg" alt="Team working together in a modern open office" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()">
+        <div class="photo-label"><strong>Hero photo</strong>images/hero.jpg &middot; wide, 1600&times;700</div>
+      </div>
+    </div>
   </section>
 
   <!-- Problems -->
