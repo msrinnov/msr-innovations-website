@@ -201,6 +201,33 @@
       flex-wrap: wrap;
     }
 
+    /* Photo slots: show a labeled placeholder until the image file exists */
+    .photo {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      border: 2px dashed rgba(148, 163, 184, 0.35);
+      background: var(--surface);
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    .photo .photo-label { padding: 20px; }
+    .photo .photo-label strong { display: block; color: var(--text); margin-bottom: 4px; }
+
+    .photo img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .photo.has-img { border: 0; }
+    .photo-team { aspect-ratio: 4 / 3; margin-top: 32px; }
     /* Sections */
     section { padding: 90px 0; }
 
@@ -435,8 +462,7 @@
       <div class="hero-actions">
         <a href="#contact" class="btn btn-primary">Book a Free Consultation</a>
         <a href="#services" class="btn btn-secondary">See Services</a>
-      </div>
-    </div>
+      </div>    </div>
   </section>
 
   <!-- Problems -->
@@ -553,6 +579,10 @@
       <div class="section-head" style="margin-bottom:0">
         <h2>Why small businesses choose MSR</h2>
         <p>We partner with organizations to identify opportunities, modernize how they work, and put the right technology in place to support growth.</p>
+        <div class="photo photo-team">
+          <img src="images/team.jpg" alt="Consultant working with a small business team" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()">
+          <div class="photo-label"><strong>Team / collaboration photo</strong>images/team.jpg &middot; 1200&times;900</div>
+        </div>
       </div>
       <ul class="why-list">
         <li>
@@ -594,8 +624,7 @@
               (919) 630-1056
             </a>
           </li>
-        </ul>
-      </div>
+        </ul>      </div>
       <div class="card">
         <form id="contact-form">
           <div>
