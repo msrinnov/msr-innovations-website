@@ -633,6 +633,11 @@
         </ul>      </div>
       <div class="card">
         <form id="contact-form">
+          <!-- Web3Forms emails each submission to the address tied to this key -->
+          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+          <input type="hidden" name="subject" value="New consultation request from msrinnovations.com">
+          <input type="hidden" name="from_name" value="MSR Innovations Website">
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none">
           <div>
             <label for="name">Name</label>
             <input id="name" name="name" type="text" autocomplete="name" required>
@@ -650,7 +655,7 @@
             <textarea id="message" name="message" required></textarea>
           </div>
           <button type="submit" class="btn btn-primary">Send Message</button>
-          <p class="form-note">Opens your email app with your message ready to send.</p>
+          <p class="form-note" id="form-status" role="status" aria-live="polite">We'll get back to you as soon as possible.</p>
         </form>
       </div>
     </div>
@@ -664,9 +669,11 @@
   </footer>
 
   <script>
-    document.getElementById('contact-form').addEventListener('submit', function (e) {
-      e.preventDefault();
-      var f = e.target;
+    var form = document.getElementById('contact-form');
+    var statusEl = document.getElementById('form-status');
+    var submitBtn = form.querySelector('button[type="submit"]');
+
+    function openEmailFallback(f) {
       var subject = 'Consultation request from ' + f.name.value;
       var body = 'Name: ' + f.name.value + '\n' +
                  'Email: ' + f.email.value + '\n' +
@@ -674,6 +681,44 @@
                  '\n' + f.message.value;
       window.location.href = 'mailto:info@msrinnovations.com?subject=' +
         encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    }
+
+    function setStatus(text, color) {
+      statusEl.textContent = text;
+      statusEl.style.color = color || '';
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Until a Web3Forms key is configured, fall back to the visitor's email app
+      if (form.access_key.value.indexOf('YOUR_') === 0) {
+        openEmailFallback(form);
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+      setStatus('');
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      })
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          if (!data.success) throw new Error(data.message || 'Submission failed');
+          form.reset();
+          setStatus("Thanks! Your message was sent. We'll be in touch soon.", '#4ade80');
+        })
+        .catch(function () {
+          setStatus('Sorry, something went wrong. Please email info@msrinnovations.com or call (919) 630-1056.', '#f87171');
+        })
+        .finally(function () {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send Message';
+        });
     });
   </script>
 
