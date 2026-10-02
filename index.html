@@ -11,7 +11,29 @@
   <meta property="og:description" content="Practical technology and strategy that help small businesses grow.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.msrinnovations.com/">
-  <meta property="og:image" content="https://www.msrinnovations.com/MSRI_Logo.png">
+  <meta property="og:image" content="https://www.msrinnovations.com/images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="MSR Innovations: practical technology and strategy for small businesses">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://www.msrinnovations.com/">
+  <meta name="theme-color" content="#0b1120">
+
+  <!-- Business details for search engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "MSR Innovations LLC",
+    "url": "https://www.msrinnovations.com/",
+    "logo": "https://www.msrinnovations.com/MSRI_Logo.png",
+    "image": "https://www.msrinnovations.com/images/og-image.png",
+    "description": "Technology consulting, digital transformation, and innovation strategy for small businesses.",
+    "email": "info@msrinnovations.com",
+    "telephone": "+1-919-630-1056",
+    "knowsAbout": ["Digital Transformation", "Business Consulting", "Innovation Strategy"]
+  }
+  </script>
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -410,6 +432,52 @@
 
     .form-note { font-size: 0.85rem; color: var(--muted); margin: 0; }
 
+    /* FAQ */
+    .faq {
+      max-width: 820px;
+      margin: 0 auto;
+      display: grid;
+      gap: 14px;
+    }
+
+    .faq details {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0 24px;
+    }
+
+    .faq details[open] { border-color: rgba(56, 189, 248, 0.4); }
+
+    .faq summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 20px 0;
+      font-weight: 600;
+      color: var(--heading);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .faq summary::-webkit-details-marker { display: none; }
+
+    .faq summary::after {
+      content: "+";
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--blue);
+      flex-shrink: 0;
+    }
+
+    .faq details[open] summary::after { content: "\2212"; }
+
+    .faq details p {
+      margin: 0 0 20px;
+      color: var(--muted);
+    }
+
     footer {
       border-top: 1px solid var(--border);
       padding: 28px 0;
@@ -443,12 +511,13 @@
   <header class="site-header">
     <div class="container nav-container">
       <a href="/" class="brand">
-        <img src="MSRI_Logo.png" alt="MSR Innovations LLC Logo" />
+        <img src="images/logo.webp" alt="MSR Innovations LLC Logo" width="400" height="143" />
       </a>
       <nav class="main-nav">
         <a href="#services">Services</a>
         <a href="#process">How It Works</a>
         <a href="#why">Why MSR</a>
+        <a href="#faq">FAQ</a>
         <a href="#contact" class="btn btn-primary">Free Consultation</a>
       </nav>
     </div>
@@ -465,8 +534,8 @@
         <a href="#services" class="btn btn-secondary">See Services</a>
       </div>
       <div class="photo photo-hero">
-        <img src="images/hero.jpg" alt="Team working together in a modern open office" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()">
-        <div class="photo-label"><strong>Hero photo</strong>images/hero.jpg &middot; wide, 1600&times;700</div>
+        <img src="images/hero.webp" width="1600" height="700" alt="Team working together in a modern open office" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()">
+        <div class="photo-label"><strong>Hero photo</strong>images/hero.webp &middot; wide, 1600&times;700</div>
       </div>
     </div>
   </section>
@@ -586,8 +655,8 @@
         <h2>Why small businesses choose MSR</h2>
         <p>We partner with organizations to identify opportunities, modernize how they work, and put the right technology in place to support growth.</p>
         <div class="photo photo-team">
-          <img src="images/team.jpg" alt="Consultant working with a small business team" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()">
-          <div class="photo-label"><strong>Team / collaboration photo</strong>images/team.jpg &middot; 1200&times;900</div>
+          <img src="images/team.webp" width="1200" height="900" loading="lazy" alt="Consultant working with a small business team" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()">
+          <div class="photo-label"><strong>Team / collaboration photo</strong>images/team.webp &middot; 1200&times;900</div>
         </div>
       </div>
       <ul class="why-list">
@@ -608,6 +677,38 @@
           <div><strong>Focused on measurable results</strong><span>Clear goals up front and outcomes you can track.</span></div>
         </li>
       </ul>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-head center">
+        <h2>Frequently asked questions</h2>
+        <p>Quick answers to what small business owners usually ask first.</p>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>What happens in the free consultation?</summary>
+          <p>We talk through your business, your goals, and what's slowing you down. You'll leave with a clearer picture of where technology and process changes could help most. There's no obligation to move forward.</p>
+        </details>
+        <details>
+          <summary>How much do your services cost?</summary>
+          <p>It depends on the scope of the work. After the consultation, you'll receive a clear proposal with the cost before any work begins, so there are no surprises.</p>
+        </details>
+        <details>
+          <summary>How long does a typical project take?</summary>
+          <p>Smaller improvements can be done in a few weeks. Larger changes are broken into phases so you see results along the way instead of waiting until the end.</p>
+        </details>
+        <details>
+          <summary>Do I need technical staff to work with you?</summary>
+          <p>No. We explain options in plain language and work alongside your team, whatever its technical experience.</p>
+        </details>
+        <details>
+          <summary>Do you only work with small businesses?</summary>
+          <p>Small businesses are our focus, but we're happy to talk with organizations of any size about how we can help.</p>
+        </details>
+      </div>
     </div>
   </section>
 
@@ -656,6 +757,7 @@
           </div>
           <button type="submit" class="btn btn-primary">Send Message</button>
           <p class="form-note" id="form-status" role="status" aria-live="polite">We'll get back to you as soon as possible.</p>
+          <p class="form-note">By sending this form you agree to our <a href="/privacy.html">Privacy Policy</a>.</p>
         </form>
       </div>
     </div>
@@ -663,7 +765,7 @@
 
   <footer>
     <div class="container footer-inner">
-      <span>&copy; 2026 MSR Innovations LLC. All rights reserved.</span>
+      <span>&copy; 2026 MSR Innovations LLC. All rights reserved. &middot; <a href="/privacy.html">Privacy Policy</a></span>
       <span><a href="mailto:info@msrinnovations.com">info@msrinnovations.com</a> &middot; <a href="tel:+19196301056">(919) 630-1056</a></span>
     </div>
   </footer>
