@@ -1,0 +1,9 @@
+# Cloudflare Pages response headers
+/images/*
+  Cache-Control: public, max-age=2592000
+
+/*.png
+  Cache-Control: public, max-age=2592000
+
+/favicon.ico
+  Cache-Control: public, max-age=2592000
