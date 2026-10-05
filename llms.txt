@@ -1,0 +1,20 @@
+# MSR Innovations LLC
+
+> MSR Innovations LLC provides practical technology and strategy services that help small businesses grow: digital transformation, business consulting, and innovation strategy.
+
+## Pages
+
+- [Home](https://www.msrinnovations.com/): Services, how engagements work, FAQ, and contact form
+- [Privacy Policy](https://www.msrinnovations.com/privacy): How information submitted through the site is collected and used
+
+## Services
+
+- Digital Transformation: Integrating the right technology to streamline operations and improve customer experience
+- Consulting: Strategic guidance to optimize processes, technology, and business outcomes
+- Innovation Strategy: Turning ideas into actionable projects that generate measurable impact
+
+## Contact
+
+- Email: [info@msrinnovations.com](mailto:info@msrinnovations.com)
+- Phone: [(919) 630-1056](tel:+19196301056)
+- Free consultation: [Book through the contact form](https://www.msrinnovations.com/#contact)
